@@ -35,6 +35,11 @@ echo "removing old source"
    wget $SOURCE_URL/$lame_source
    tar -zxvf $_package
    cd lame-3.99.5/
+if [ "$(uname -o)" == "Cygwin" ]
+then
+mv config.guess config.guess.save
+cp /usr/share/automake-1.9/config.guess ./
+fi
    ./configure --prefix=$INSTALL_DDIR --enable-mp3x --enable-mp3rtp
 
 make -j$cpu
