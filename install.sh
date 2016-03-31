@@ -53,8 +53,12 @@ echo "**************************************************************************
 echo -e "$RESET"
 echo  "If you need to cancell  the installation press Ctrl+C  ...."
 echo -n  "Press ENTER to start the installation  ...."
-read option
-if [[ $who == "root" ]];then
+#read option
+if [ "$(uname -o)" == "Cygwin" ]
+then
+echo "beta os windows using cygwin no root required"
+       sh start.sh | tee /var/log/ffmpeginstaller.$_version.log.$lpid
+elif [[ $who == "root" ]];then
        sh start.sh | tee /var/log/ffmpeginstaller.$_version.log.$lpid
 else
         echo "                  Sorry  Buddy, you are not a root user. This is not for yours."
