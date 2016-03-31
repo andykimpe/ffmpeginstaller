@@ -52,6 +52,60 @@ if [ -e "/etc/debian_version" ];then
 		libtiff-dev libtool libxml2 libxml2-dev automake autoconf libncurses-dev ncurses-dev patch \
 		make git subversion -y
 fi
+
+if [ "$(uname -o)" == "Cygwin" ]
+then
+echo "beta os windows cygwin no root required"
+if [ -f /usr/bin/wget.exe ]
+then
+echo "install apt-cyg"
+lynx -source rawgit.com/transcode-open/apt-cyg/master/apt-cyg > apt-cyg
+install apt-cyg /bin
+rm -rf apt-cyg
+echo "install required package"
+apt-cyg update
+apt-cyg install make
+apt-cyg install automake
+apt-cyg install autoconf
+apt-cyg install gcc-core
+apt-cyg install gcc-g++
+apt-cyg install libfreetype-devel
+apt-cyg install libtool
+apt-cyg install pkg-config
+apt-cyg install texinfo
+apt-cyg install zlib-devel
+apt-cyg install cmake
+apt-cyg install mercurial
+apt-cyg install nasm
+apt-cyg install git
+apt-cyg install gcc-mingw
+apt-cyg install mingw64-$(uname -m)-gcc-core
+apt-cyg install mingw64-$(uname -m)-gcc-g++
+apt-cyg install gdb
+apt-cyg install gettext
+apt-cyg install gettext-devel
+apt-cyg install libgcrypt-devel
+apt-cyg install libiconv
+apt-cyg install mingw64-$(uname -m)-runtime
+apt-cyg install patchutils
+apt-cyg install expat
+apt-cyg install libgd-devel
+apt-cyg install mingw64-$(uname -m)-libgd
+apt-cyg install cygwin-devel
+apt-cyg install libpng-devel
+apt-cyg install mingw64-$(uname -m)-libpng
+apt-cyg install libstdc++6
+apt-cyg install libtiff-devel
+apt-cyg install libxml2-devel
+apt-cyg install mingw64-$(uname -m)-libxml2
+apt-cyg install libncurses-devel
+apt-cyg install mingw64-$(uname -m)-ncurses
+apt-cyg install subversion
+else
+echo "wget required please start cygwin installers install wget and restart ffmpeginstaller"
+fi
+fi
+
 #Git client
 sh git.sh
 
