@@ -43,11 +43,6 @@ else
    	wget $SOURCE_URL/$ruby
    	tar -xvzf  $ruby
    	cd ruby-1.8.7/
-if [ "$(uname -o)" == "Cygwin" ]
-then
-mv config.guess config.guess.save
-cp /usr/share/automake-1.9/config.guess ./
-fi
    	./configure --prefix=$INSTALL_DDIR
 	make 
 	make install
