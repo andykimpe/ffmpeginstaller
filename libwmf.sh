@@ -36,7 +36,12 @@ echo "removing old source"
    wget $SOURCE_URL/$libwmf
    tar -xvzf  $libwmf
    cd libwmf-0.2.8.4/
-   ./configure --prefix=$INSTALL_DDIR --with-freetype=/usr/local/cpffmpeg
+if [ "$(uname -o)" == "Cygwin" ]
+then
+mv config.guess config.guess.save
+cp /usr/share/automake-1.9/config.guess ./
+fi
+   ./configure --prefix=$INSTALL_DDIR --with-freetype=$INSTALL_DDIR
 make -j$cpu
 make install
 
