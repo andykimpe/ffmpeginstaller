@@ -25,7 +25,8 @@ export cpu=`cat "/proc/cpuinfo" | grep "processor"|wc -l`
 export TMPDIR=$HOME/tmp
 export LD_LIBRARY_PATH=/usr/local/cpffmpeg/lib:/usr/local/lib:/usr/lib:$LD_LIBRARY_PATH
 export LIBRARY_PATH=/usr/local/cpffmpeg/lib:/usr/lib:/usr/local/lib:$LIBRARY_PATH
-export CPATH=/usr/local/cpffmpeg/include:/usr/include/:usr/local/include:$CPATH
+export CPATH=/usr/local/cpffmpeg/include:/usr/include/:/usr/local/include:$CPATH
+export PKG_CONFIG_PATH=/usr/local/cpffmpeg/lib/pkgconfig:/usr/lib/pkgconfig:/usr/local/lib/pkgconfig:$PKG_CONFIG_PATH
 #presetup
 sh presetup.sh
 
