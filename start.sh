@@ -103,6 +103,7 @@ apt-cyg install libncurses-devel
 apt-cyg install mingw64-$(uname -m)-ncurses
 apt-cyg install subversion
 apt-cyg install doxygen
+apt-cyg install ruby
 else
 echo "wget required please start cygwin installers install wget and restart ffmpeginstaller"
 fi
