@@ -36,6 +36,10 @@ echo "removing old source"
    wget $SOURCE_URL/$flvtool_source
    tar -zxvf  $_package
    cd flvtool2-1.0.6/
+if [ "$(uname -o)" == "Cygwin" ]
+then
+sed -i 's|::Config::CONFIG|RbConfig::CONFIG|' "setup.rb"
+fi
    /usr/local/cpffmpeg/bin/ruby setup.rb config
    /usr/local/cpffmpeg/bin/ruby setup.rb setup
    /usr/local/cpffmpeg/bin/ruby setup.rb install
